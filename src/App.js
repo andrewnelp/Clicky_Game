@@ -28,9 +28,10 @@ class App extends Component {
       this.setState({ score: 0 });
       this.setState({ arrPok: new Set(this.state.arrPok) }, () => console.log(this.state.arrPok));
     } else {
-      this.setState({ score: this.state.score + 1 });
+      this.setState(curState => ({ score: curState.score + 1 }));
+      
       if (this.state.score === this.state.highscore) {
-        this.setState({ highscore: this.state.highscore + 1 });
+        this.setState(st => ({ highscore: st.highscore + 1 }));
       }
     }
   }
